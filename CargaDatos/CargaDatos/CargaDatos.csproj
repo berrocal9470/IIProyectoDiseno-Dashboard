@@ -50,7 +50,6 @@
     <Compile Include="Negocio\DAOcsv.cs" />
     <Compile Include="Negocio\DAOExcel.cs" />
     <Compile Include="Negocio\GestorUbicaciones.cs" />
-    <Compile Include="Negocio\IAgregar.cs" />
     <Compile Include="Negocio\ILectura.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
