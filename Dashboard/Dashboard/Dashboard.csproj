@@ -51,6 +51,14 @@
     <Compile Include="Modelo\ResultadoConsultaIndicador.cs" />
     <Compile Include="Modelo\ResultadoObserver.cs" />
     <Compile Include="Modelo\ResultadoTablas.cs" />
+    <Compile Include="Negocio\Controlador.cs" />
+    <Compile Include="Negocio\DAOBD.cs" />
+    <Compile Include="Negocio\DTO.cs" />
+    <Compile Include="Negocio\EnumTipoConsulta.cs" />
+    <Compile Include="Negocio\IConsultable.cs" />
+    <Compile Include="Negocio\IContainer.cs" />
+    <Compile Include="Negocio\Iterator.cs" />
+    <Compile Include="Negocio\ResultadosConsulta.cs" />
     <Compile Include="Vista\ctrlDinamica.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -114,9 +122,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Negocio\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Vista\Iconos\mas-48.png" />
     <Content Include="Vista\Iconos\menos-48.png" />
