@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +51,27 @@
     <Compile Include="Modelo\ResultadoConsultaIndicador.cs" />
     <Compile Include="Modelo\ResultadoObserver.cs" />
     <Compile Include="Modelo\ResultadoTablas.cs" />
+    <Compile Include="Vista\ctrlDinamica.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vista\ctrlDinamica.Designer.cs">
+      <DependentUpon>ctrlDinamica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ctrlIndicador.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vista\ctrlIndicador.Designer.cs">
+      <DependentUpon>ctrlIndicador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ctrlLibre.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vista\ctrlLibre.Designer.cs">
+      <DependentUpon>ctrlLibre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\DragControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Vista\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +89,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vista\ctrlDinamica.resx">
+      <DependentUpon>ctrlDinamica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\ctrlIndicador.resx">
+      <DependentUpon>ctrlIndicador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\ctrlLibre.resx">
+      <DependentUpon>ctrlLibre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -82,6 +116,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Negocio\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Vista\Iconos\mas-48.png" />
+    <Content Include="Vista\Iconos\menos-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
