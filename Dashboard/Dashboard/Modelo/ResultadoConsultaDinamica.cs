@@ -8,11 +8,11 @@ namespace Dashboard.Modelo
 {
     class ResultadoConsultaDinamica : IResultado
     {
-        private string Provincia { get; set; }
-        private string Canton { get; set; }
-        private string Distrito { get; set; }
-        private double Latitud { get; set; }
-        private double Longitud { get; set; }
+        public string Provincia { get; set; }
+        public string Canton { get; set; }
+        public string Distrito { get; set; }
+        public double Latitud { get; set; }
+        public double Longitud { get; set; }
 
         //Constructor default
         public ResultadoConsultaDinamica()

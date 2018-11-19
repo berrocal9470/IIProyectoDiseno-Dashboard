@@ -9,8 +9,8 @@ namespace Dashboard.Modelo
     class ResultadoTablas : IResultado
     {
         //este object puede ser int o string, dependiendo de la tabla
-        private object Codigo { get; set; }
-        private string Nombre { get; set; }
+        public object Codigo { get; set; }
+        public string Nombre { get; set; }
 
         //Constructor default
         public ResultadoTablas()

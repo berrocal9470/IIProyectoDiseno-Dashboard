@@ -39,6 +39,7 @@
       <HintPath>..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -61,10 +62,18 @@
     <Compile Include="Negocio\DAOBD.cs" />
     <Compile Include="Negocio\DTO.cs" />
     <Compile Include="Negocio\EnumTipoConsulta.cs" />
+    <Compile Include="Negocio\GraficoObserver.cs" />
     <Compile Include="Negocio\IConsultable.cs" />
     <Compile Include="Negocio\IContainer.cs" />
+    <Compile Include="Negocio\IObserver.cs" />
     <Compile Include="Negocio\Iterator.cs" />
+    <Compile Include="Negocio\Observable.cs" />
     <Compile Include="Negocio\ResultadosConsulta.cs" />
+    <Compile Include="Proyecto2DisennoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Proyecto2DisennoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Vista\ctrlDinamica.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -125,6 +134,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Proyecto2DisennoDataSet.xsc">
+      <DependentUpon>Proyecto2DisennoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Proyecto2DisennoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Proyecto2DisennoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Proyecto2DisennoDataSet.xss">
+      <DependentUpon>Proyecto2DisennoDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -9,21 +9,21 @@ namespace Dashboard.Negocio
 {
     class DTO
     {
-        private List<ResultadoTablas> Provincias { get; set; }
-        private List<ResultadoTablas> Cantones { get; set; }
-        private List<ResultadoTablas> Distritos { get; set; }
-        
+        public List<ResultadoTablas> Provincias { get; set; }
+        public List<ResultadoTablas> Cantones { get; set; }
+        public List<ResultadoTablas> Distritos { get; set; }
+
         //Se puede aprovechar el codigo-nombre para estos
-        private ResultadoTablas Indicador { get; set; }
-        private ResultadoTablas TipoAfectado { get; set; }
-        private ResultadoTablas TipoLesion { get; set; }
+        public ResultadoTablas Indicador { get; set; }
+        public ResultadoTablas TipoAfectado { get; set; }
+        public ResultadoTablas TipoLesion { get; set; }
 
-        private string Sexo { get; set; }
-        private string EdadQuinquenal { get; set; }
+        public string Sexo { get; set; }
+        public string EdadQuinquenal { get; set; }
 
-        private List<IResultado> resultados { get; set; }
+        public ResultadosConsulta Resultados { get; set; }
 
-        private EnumTipoConsulta.TipoConsulta tipoConsulta { get; set; }
+        public EnumTipoConsulta.TipoConsulta tipoConsulta { get; set; }
 
         public DTO() { }
     }

@@ -8,8 +8,8 @@ namespace Dashboard.Modelo
 {
     class ResultadoObserver : IResultado
     {
-        private string Sexo { get; set; }
-        private string EdadQuinquenal { get; set; }
+        public string Sexo { get; set; }
+        public string EdadQuinquenal { get; set; }
 
         //Constructor default
         public ResultadoObserver()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dashboard.Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,14 @@ namespace Dashboard
 {
     public partial class Form1 : Form
     {
+        private Controlador Controlador { get; set; }
+
         public Form1()
         {
             InitializeComponent();
             Maximizar();
+
+            Controlador = new Controlador();
 
             Width = ctrlDinamica1.Width + Width - ClientSize.Width;
             Height = ctrlDinamica1.Height + Height - ClientSize.Height;

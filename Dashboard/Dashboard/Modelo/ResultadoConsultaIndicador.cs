@@ -8,8 +8,8 @@ namespace Dashboard.Modelo
 {
     class ResultadoConsultaIndicador : IResultado
     {
-        private string Indicador { get; set; }
-        private string Valor { get; set; }
+        public string Indicador { get; set; }
+        public string Valor { get; set; }
 
         //Contructor default
         public ResultadoConsultaIndicador()

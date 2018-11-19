@@ -8,14 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
+using Dashboard.Negocio;
+using Dashboard.Modelo;
 
 namespace Dashboard.Vista
 {
     public partial class ctrlLibre : UserControl
     {
+        private Controlador Controlador { get; set; }
+        private List<IResultado> resultado;
+
         public ctrlLibre()
         {
             InitializeComponent();
+            Controlador = new Controlador();
         }
 
         private void ctrlLibre_Load(object sender, EventArgs e)
@@ -75,6 +81,33 @@ namespace Dashboard.Vista
             }
 
             lblEdadQuinquenal.Text = edadQuinquenal;
+        }
+
+        //Consulta los datos a la tabla
+        private void consultar()
+        {
+            DTO dto = Controlador.consultaObserver();
+
+            string result = "";
+            ResultadoObserver obs;
+
+            for (Iterator iter = dto.Resultados.getIterador(); iter.hasNext();)
+            {
+                obs = (ResultadoObserver) iter.next();
+                result += obs.Sexo + " " + obs.EdadQuinquenal + "\n";
+            }
+
+            MessageBox.Show(result);
+        }
+
+        public void notify()
+        {
+
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            consultar();
         }
     }
 }
