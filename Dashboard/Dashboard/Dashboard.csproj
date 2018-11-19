@@ -58,6 +58,8 @@
     <Compile Include="Modelo\ResultadoConsultaIndicador.cs" />
     <Compile Include="Modelo\ResultadoObserver.cs" />
     <Compile Include="Modelo\ResultadoTablas.cs" />
+    <Compile Include="Negocio\ConsultaComponente.cs" />
+    <Compile Include="Negocio\ConsultaDecorator.cs" />
     <Compile Include="Negocio\Controlador.cs" />
     <Compile Include="Negocio\DAOBD.cs" />
     <Compile Include="Negocio\DTO.cs" />
@@ -65,14 +67,22 @@
     <Compile Include="Negocio\GraficoObserver.cs" />
     <Compile Include="Negocio\IConsultable.cs" />
     <Compile Include="Negocio\IContainer.cs" />
+    <Compile Include="Negocio\Indicador.cs" />
+    <Compile Include="Negocio\IndicadorEnum.cs" />
     <Compile Include="Negocio\IObserver.cs" />
     <Compile Include="Negocio\Iterator.cs" />
     <Compile Include="Negocio\Observable.cs" />
     <Compile Include="Negocio\ResultadosConsulta.cs" />
+    <Compile Include="Negocio\WhereDecorator.cs" />
     <Compile Include="Proyecto2DisennoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Proyecto2DisennoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Proyecto2DisennoDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Proyecto2DisennoDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Vista\ctrlDinamica.cs">
       <SubType>UserControl</SubType>
@@ -144,6 +154,17 @@
     </None>
     <None Include="Proyecto2DisennoDataSet.xss">
       <DependentUpon>Proyecto2DisennoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Proyecto2DisennoDataSet1.xsc">
+      <DependentUpon>Proyecto2DisennoDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Proyecto2DisennoDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Proyecto2DisennoDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Proyecto2DisennoDataSet1.xss">
+      <DependentUpon>Proyecto2DisennoDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

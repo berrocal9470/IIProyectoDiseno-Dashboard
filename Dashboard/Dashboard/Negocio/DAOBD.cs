@@ -18,16 +18,14 @@ namespace Dashboard.Negocio
                                     .ConnectionStrings["Dashboard.Properties.Settings.Proyecto2DisennoConnectionString"]
                                     .ConnectionString);
         }
-        private void consultar()
-        {
 
-        }
+
         public List<IResultado> consultar(object obj)
         {
             return null;
         }
 
-        public object consultarTabla(string nombreTabla)
+        public List<IResultado> consultarTabla(string nombreTabla)
         {
             List<ResultadoTablas> resultado = new List<ResultadoTablas>();
 
@@ -38,20 +36,22 @@ namespace Dashboard.Negocio
 
             try
             {
+                conexionSQL.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     ResultadoTablas tabla = new ResultadoTablas();
-                    tabla.Codigo = reader[1].ToString();
-                    tabla.Nombre = reader[2].ToString();
+                    tabla.Codigo = reader[0].ToString();
+                    tabla.Nombre = reader[1].ToString();
 
                     resultado.Add(tabla);
                 }
-
-                return resultado;
+                conexionSQL.Close();
+                return resultado.Cast<IResultado>().ToList();
             }
             catch(SqlException e)
             {
+
                 return null;
             }
         }

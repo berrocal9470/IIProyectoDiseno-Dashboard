@@ -95,6 +95,7 @@
             this.btnAgregarProvincia.Size = new System.Drawing.Size(25, 25);
             this.btnAgregarProvincia.TabIndex = 4;
             this.btnAgregarProvincia.UseVisualStyleBackColor = false;
+            this.btnAgregarProvincia.Click += new System.EventHandler(this.btnAgregarProvincia_Click);
             // 
             // btnQuitarProvincia
             // 
@@ -109,6 +110,7 @@
             this.btnQuitarProvincia.Size = new System.Drawing.Size(25, 25);
             this.btnQuitarProvincia.TabIndex = 5;
             this.btnQuitarProvincia.UseVisualStyleBackColor = false;
+            this.btnQuitarProvincia.Click += new System.EventHandler(this.btnQuitarProvincia_Click);
             // 
             // lbxProvincia
             // 
@@ -383,6 +385,7 @@
             this.btnConsultar.TabIndex = 32;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // mapa
             // 

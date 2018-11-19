@@ -11,6 +11,8 @@ using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
+using Dashboard.Negocio;
+using Dashboard.Modelo;
 
 namespace Dashboard.Vista
 {
@@ -19,6 +21,10 @@ namespace Dashboard.Vista
 
         GMarkerGoogle marker;
         GMapOverlay markerOverlay;
+
+        Controlador controlador = new Controlador();
+
+        DTO dto = new DTO();
 
         //Coordenadas iniciales de SJ,Costa Rica
         double LatInicial = 9.86398955624118;
@@ -72,6 +78,46 @@ namespace Dashboard.Vista
             lblEdadQuinquenal.Text = edadQuinquenal;
         }
 
+        private void cargarProvincias() {
+            dto = controlador.consultarTabla("Provincias");
+            ResultadoTablas obs;
+
+            for (Iterator iter = dto.Resultados.getIterador(); iter.hasNext();)
+            {
+                obs = (ResultadoTablas)iter.next();
+                cbxProvincia.Items.Add(obs.Nombre);
+            }
+
+        }
+
+        private void cargarAfectados()
+        {
+            dto = controlador.consultarTabla("Roles");
+            ResultadoTablas obs;
+
+            for (Iterator iter = dto.Resultados.getIterador(); iter.hasNext();)
+            {
+                obs = (ResultadoTablas)iter.next();
+                cbxAfectado.Items.Add(obs.Nombre);
+            }
+
+        }
+
+
+        private void cargarLesiones()
+        {
+            dto = controlador.consultarTabla("Lesiones");
+            ResultadoTablas obs;
+
+            for (Iterator iter = dto.Resultados.getIterador(); iter.hasNext();)
+            {
+                obs = (ResultadoTablas)iter.next();
+                cbxLesion.Items.Add(obs.Nombre);
+            }
+
+        }
+
+
         private void ctrlDinamica_Load(object sender, EventArgs e)
         {
             mapa.DragButton = MouseButtons.Left;
@@ -82,6 +128,42 @@ namespace Dashboard.Vista
             mapa.MaxZoom = 24;
             mapa.Zoom = 14;
             mapa.AutoScroll = true;
+
+            cbxSexo.Items.Add("Hombre");
+            cbxSexo.Items.Add("Mujer");
+            cbxSexo.Items.Add("Desconocido");
+
+            cargarProvincias();
+            cargarAfectados();
+            cargarLesiones();
+        }
+
+        private void btnAgregarProvincia_Click(object sender, EventArgs e)
+        {
+            if (cbxProvincia.SelectedIndex > -1)
+            {
+                if (!lbxProvincia.Items.Contains(cbxProvincia.SelectedItem))
+                {
+                    lbxProvincia.Items.Add(cbxProvincia.SelectedItem);
+                }         
+            }
+            else {
+                MessageBox.Show("Debe seleccionar una provincia");
+            }
+        }
+
+        private void btnQuitarProvincia_Click(object sender, EventArgs e)
+        {
+            
+            lbxProvincia.Items.Remove(lbxProvincia.SelectedItem);
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            string where = controlador.generarConsulta();
+
+            MessageBox.Show(where);
+
         }
     }
 }
