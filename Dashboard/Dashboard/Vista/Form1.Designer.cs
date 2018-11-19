@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.pnlConsultaSeleccionada = new System.Windows.Forms.Panel();
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.btnMaximizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnLibre = new System.Windows.Forms.Button();
             this.btnIndicador = new System.Windows.Forms.Button();
@@ -39,9 +42,6 @@
             this.ctrlIndicador1 = new Dashboard.Vista.ctrlIndicador();
             this.ctrlDinamica1 = new Dashboard.Vista.ctrlDinamica();
             this.dragControl1 = new Dashboard.Vista.DragControl();
-            this.btnMaximizar = new System.Windows.Forms.Button();
-            this.btnMinimizar = new System.Windows.Forms.Button();
-            this.pnlConsultaSeleccionada = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
             this.pnlVistas.SuspendLayout();
             this.SuspendLayout();
@@ -60,8 +60,42 @@
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(1080, 100);
+            this.pnlMenu.Size = new System.Drawing.Size(1080, 104);
             this.pnlMenu.TabIndex = 0;
+            // 
+            // pnlConsultaSeleccionada
+            // 
+            this.pnlConsultaSeleccionada.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.pnlConsultaSeleccionada.Location = new System.Drawing.Point(177, 93);
+            this.pnlConsultaSeleccionada.Name = "pnlConsultaSeleccionada";
+            this.pnlConsultaSeleccionada.Size = new System.Drawing.Size(154, 7);
+            this.pnlConsultaSeleccionada.TabIndex = 7;
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMinimizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.Location = new System.Drawing.Point(918, 0);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(54, 104);
+            this.btnMinimizar.TabIndex = 6;
+            this.btnMinimizar.Text = "_";
+            this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnMaximizar
+            // 
+            this.btnMaximizar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMaximizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximizar.Location = new System.Drawing.Point(972, 0);
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.Size = new System.Drawing.Size(54, 104);
+            this.btnMaximizar.TabIndex = 5;
+            this.btnMaximizar.Text = "□";
+            this.btnMaximizar.UseVisualStyleBackColor = true;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
             // 
             // btnSalir
             // 
@@ -70,7 +104,7 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Location = new System.Drawing.Point(1026, 0);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(54, 100);
+            this.btnSalir.Size = new System.Drawing.Size(54, 104);
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "X";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -118,7 +152,7 @@
             this.pnlImagen.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlImagen.Location = new System.Drawing.Point(0, 0);
             this.pnlImagen.Name = "pnlImagen";
-            this.pnlImagen.Size = new System.Drawing.Size(132, 100);
+            this.pnlImagen.Size = new System.Drawing.Size(132, 104);
             this.pnlImagen.TabIndex = 0;
             // 
             // pnlVistas
@@ -136,8 +170,9 @@
             // ctrlLibre1
             // 
             this.ctrlLibre1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlLibre1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlLibre1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlLibre1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ctrlLibre1.Margin = new System.Windows.Forms.Padding(6);
             this.ctrlLibre1.Name = "ctrlLibre1";
             this.ctrlLibre1.Size = new System.Drawing.Size(1080, 620);
             this.ctrlLibre1.TabIndex = 2;
@@ -145,8 +180,9 @@
             // ctrlIndicador1
             // 
             this.ctrlIndicador1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlIndicador1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlIndicador1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlIndicador1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ctrlIndicador1.Margin = new System.Windows.Forms.Padding(6);
             this.ctrlIndicador1.Name = "ctrlIndicador1";
             this.ctrlIndicador1.Size = new System.Drawing.Size(1080, 620);
             this.ctrlIndicador1.TabIndex = 1;
@@ -154,8 +190,9 @@
             // ctrlDinamica1
             // 
             this.ctrlDinamica1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlDinamica1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlDinamica1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlDinamica1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.ctrlDinamica1.Margin = new System.Windows.Forms.Padding(6);
             this.ctrlDinamica1.Name = "ctrlDinamica1";
             this.ctrlDinamica1.Size = new System.Drawing.Size(1080, 620);
             this.ctrlDinamica1.TabIndex = 0;
@@ -163,40 +200,6 @@
             // dragControl1
             // 
             this.dragControl1.SelectControl = this.pnlMenu;
-            // 
-            // btnMaximizar
-            // 
-            this.btnMaximizar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMaximizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximizar.Location = new System.Drawing.Point(972, 0);
-            this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(54, 100);
-            this.btnMaximizar.TabIndex = 5;
-            this.btnMaximizar.Text = "□";
-            this.btnMaximizar.UseVisualStyleBackColor = true;
-            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMinimizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.Location = new System.Drawing.Point(918, 0);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(54, 100);
-            this.btnMinimizar.TabIndex = 6;
-            this.btnMinimizar.Text = "_";
-            this.btnMinimizar.UseVisualStyleBackColor = true;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // pnlConsultaSeleccionada
-            // 
-            this.pnlConsultaSeleccionada.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.pnlConsultaSeleccionada.Location = new System.Drawing.Point(177, 93);
-            this.pnlConsultaSeleccionada.Name = "pnlConsultaSeleccionada";
-            this.pnlConsultaSeleccionada.Size = new System.Drawing.Size(154, 7);
-            this.pnlConsultaSeleccionada.TabIndex = 7;
             // 
             // Form1
             // 

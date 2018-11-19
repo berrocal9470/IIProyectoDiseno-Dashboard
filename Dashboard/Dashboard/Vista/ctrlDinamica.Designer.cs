@@ -44,7 +44,6 @@
             this.btnAgregarDistrito = new System.Windows.Forms.Button();
             this.cbxDistrito = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnConsultar = new System.Windows.Forms.Button();
+            this.mapa = new GMap.NET.WindowsForms.GMapControl();
             ((System.ComponentModel.ISupportInitialize)(this.trckEdadQuinquenal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +69,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(450, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 21);
+            this.label1.Size = new System.Drawing.Size(99, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "Provincia";
             // 
@@ -79,7 +79,7 @@
             this.cbxProvincia.FormattingEnabled = true;
             this.cbxProvincia.Location = new System.Drawing.Point(454, 52);
             this.cbxProvincia.Name = "cbxProvincia";
-            this.cbxProvincia.Size = new System.Drawing.Size(140, 25);
+            this.cbxProvincia.Size = new System.Drawing.Size(140, 29);
             this.cbxProvincia.TabIndex = 3;
             // 
             // btnAgregarProvincia
@@ -114,20 +114,20 @@
             // 
             this.lbxProvincia.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxProvincia.FormattingEnabled = true;
-            this.lbxProvincia.ItemHeight = 17;
+            this.lbxProvincia.ItemHeight = 21;
             this.lbxProvincia.Location = new System.Drawing.Point(454, 120);
             this.lbxProvincia.Name = "lbxProvincia";
-            this.lbxProvincia.Size = new System.Drawing.Size(140, 89);
+            this.lbxProvincia.Size = new System.Drawing.Size(140, 88);
             this.lbxProvincia.TabIndex = 6;
             // 
             // lbxCanton
             // 
             this.lbxCanton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxCanton.FormattingEnabled = true;
-            this.lbxCanton.ItemHeight = 17;
+            this.lbxCanton.ItemHeight = 21;
             this.lbxCanton.Location = new System.Drawing.Point(670, 120);
             this.lbxCanton.Name = "lbxCanton";
-            this.lbxCanton.Size = new System.Drawing.Size(140, 89);
+            this.lbxCanton.Size = new System.Drawing.Size(140, 88);
             this.lbxCanton.TabIndex = 11;
             // 
             // btnQuitarCanton
@@ -162,7 +162,7 @@
             this.cbxCanton.FormattingEnabled = true;
             this.cbxCanton.Location = new System.Drawing.Point(669, 52);
             this.cbxCanton.Name = "cbxCanton";
-            this.cbxCanton.Size = new System.Drawing.Size(141, 25);
+            this.cbxCanton.Size = new System.Drawing.Size(141, 29);
             this.cbxCanton.TabIndex = 8;
             // 
             // label2
@@ -171,7 +171,7 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(666, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 21);
+            this.label2.Size = new System.Drawing.Size(84, 23);
             this.label2.TabIndex = 7;
             this.label2.Text = "Canton";
             // 
@@ -179,10 +179,10 @@
             // 
             this.lbxDistrito.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxDistrito.FormattingEnabled = true;
-            this.lbxDistrito.ItemHeight = 17;
+            this.lbxDistrito.ItemHeight = 21;
             this.lbxDistrito.Location = new System.Drawing.Point(879, 120);
             this.lbxDistrito.Name = "lbxDistrito";
-            this.lbxDistrito.Size = new System.Drawing.Size(140, 89);
+            this.lbxDistrito.Size = new System.Drawing.Size(140, 88);
             this.lbxDistrito.TabIndex = 16;
             // 
             // btnQuitarDistrito
@@ -217,7 +217,7 @@
             this.cbxDistrito.FormattingEnabled = true;
             this.cbxDistrito.Location = new System.Drawing.Point(879, 52);
             this.cbxDistrito.Name = "cbxDistrito";
-            this.cbxDistrito.Size = new System.Drawing.Size(140, 25);
+            this.cbxDistrito.Size = new System.Drawing.Size(140, 29);
             this.cbxDistrito.TabIndex = 13;
             // 
             // label3
@@ -226,20 +226,9 @@
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(875, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 21);
+            this.label3.Size = new System.Drawing.Size(72, 23);
             this.label3.TabIndex = 12;
             this.label3.Text = "Distrito";
-            // 
-            // button7
-            // 
-            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button7.Location = new System.Drawing.Point(454, 298);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(623, 319);
-            this.button7.TabIndex = 17;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -247,7 +236,7 @@
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(83, 174);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 17);
+            this.label4.Size = new System.Drawing.Size(92, 21);
             this.label4.TabIndex = 18;
             this.label4.Text = "Afectado";
             // 
@@ -257,7 +246,7 @@
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(115, 221);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 17);
+            this.label5.Size = new System.Drawing.Size(48, 21);
             this.label5.TabIndex = 19;
             this.label5.Text = "Sexo";
             // 
@@ -267,7 +256,7 @@
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(105, 269);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 17);
+            this.label6.Size = new System.Drawing.Size(60, 21);
             this.label6.TabIndex = 20;
             this.label6.Text = "Lesión";
             // 
@@ -277,7 +266,7 @@
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(31, 327);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 17);
+            this.label7.Size = new System.Drawing.Size(156, 21);
             this.label7.TabIndex = 21;
             this.label7.Text = "Edad Quinquenal";
             // 
@@ -286,7 +275,7 @@
             this.cbxAfectado.FormattingEnabled = true;
             this.cbxAfectado.Location = new System.Drawing.Point(158, 172);
             this.cbxAfectado.Name = "cbxAfectado";
-            this.cbxAfectado.Size = new System.Drawing.Size(121, 24);
+            this.cbxAfectado.Size = new System.Drawing.Size(121, 27);
             this.cbxAfectado.TabIndex = 22;
             // 
             // cbxSexo
@@ -294,7 +283,7 @@
             this.cbxSexo.FormattingEnabled = true;
             this.cbxSexo.Location = new System.Drawing.Point(158, 219);
             this.cbxSexo.Name = "cbxSexo";
-            this.cbxSexo.Size = new System.Drawing.Size(121, 24);
+            this.cbxSexo.Size = new System.Drawing.Size(121, 27);
             this.cbxSexo.TabIndex = 23;
             // 
             // cbxLesion
@@ -302,7 +291,7 @@
             this.cbxLesion.FormattingEnabled = true;
             this.cbxLesion.Location = new System.Drawing.Point(158, 267);
             this.cbxLesion.Name = "cbxLesion";
-            this.cbxLesion.Size = new System.Drawing.Size(121, 24);
+            this.cbxLesion.Size = new System.Drawing.Size(121, 27);
             this.cbxLesion.TabIndex = 24;
             // 
             // trckEdadQuinquenal
@@ -310,7 +299,7 @@
             this.trckEdadQuinquenal.Location = new System.Drawing.Point(16, 386);
             this.trckEdadQuinquenal.Maximum = 75;
             this.trckEdadQuinquenal.Name = "trckEdadQuinquenal";
-            this.trckEdadQuinquenal.Size = new System.Drawing.Size(399, 45);
+            this.trckEdadQuinquenal.Size = new System.Drawing.Size(399, 56);
             this.trckEdadQuinquenal.SmallChange = 5;
             this.trckEdadQuinquenal.TabIndex = 25;
             this.trckEdadQuinquenal.Tag = "";
@@ -323,7 +312,7 @@
             this.lblEdadQuinquenal.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEdadQuinquenal.Location = new System.Drawing.Point(158, 327);
             this.lblEdadQuinquenal.Name = "lblEdadQuinquenal";
-            this.lblEdadQuinquenal.Size = new System.Drawing.Size(96, 17);
+            this.lblEdadQuinquenal.Size = new System.Drawing.Size(124, 21);
             this.lblEdadQuinquenal.TabIndex = 26;
             this.lblEdadQuinquenal.Text = "De 0 a 4 años";
             // 
@@ -333,7 +322,7 @@
             this.chkEdadDesconocida.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkEdadDesconocida.Location = new System.Drawing.Point(161, 347);
             this.chkEdadDesconocida.Name = "chkEdadDesconocida";
-            this.chkEdadDesconocida.Size = new System.Drawing.Size(151, 21);
+            this.chkEdadDesconocida.Size = new System.Drawing.Size(194, 25);
             this.chkEdadDesconocida.TabIndex = 27;
             this.chkEdadDesconocida.Text = "Edad Desconocida";
             this.chkEdadDesconocida.UseVisualStyleBackColor = true;
@@ -345,7 +334,7 @@
             this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(158, 134);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(55, 21);
+            this.checkBox1.Size = new System.Drawing.Size(68, 25);
             this.checkBox1.TabIndex = 28;
             this.checkBox1.Text = "2014";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -356,7 +345,7 @@
             this.checkBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox2.Location = new System.Drawing.Point(158, 108);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(55, 21);
+            this.checkBox2.Size = new System.Drawing.Size(68, 25);
             this.checkBox2.TabIndex = 29;
             this.checkBox2.Text = "2013";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -367,7 +356,7 @@
             this.checkBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox3.Location = new System.Drawing.Point(158, 82);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(55, 21);
+            this.checkBox3.Size = new System.Drawing.Size(68, 25);
             this.checkBox3.TabIndex = 30;
             this.checkBox3.Text = "2012";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -376,9 +365,9 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(113, 82);
+            this.label8.Location = new System.Drawing.Point(101, 83);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 17);
+            this.label8.Size = new System.Drawing.Size(51, 21);
             this.label8.TabIndex = 31;
             this.label8.Text = "Años";
             // 
@@ -395,10 +384,37 @@
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
             // 
+            // mapa
+            // 
+            this.mapa.Bearing = 0F;
+            this.mapa.CanDragMap = true;
+            this.mapa.EmptyTileColor = System.Drawing.Color.Navy;
+            this.mapa.GrayScaleMode = false;
+            this.mapa.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.mapa.LevelsKeepInMemmory = 5;
+            this.mapa.Location = new System.Drawing.Point(469, 298);
+            this.mapa.MarkersEnabled = true;
+            this.mapa.MaxZoom = 2;
+            this.mapa.MinZoom = 2;
+            this.mapa.MouseWheelZoomEnabled = true;
+            this.mapa.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.mapa.Name = "mapa";
+            this.mapa.NegativeMode = false;
+            this.mapa.PolygonsEnabled = true;
+            this.mapa.RetryLoadTile = 0;
+            this.mapa.RoutesEnabled = true;
+            this.mapa.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.mapa.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.mapa.ShowTileGridLines = false;
+            this.mapa.Size = new System.Drawing.Size(577, 301);
+            this.mapa.TabIndex = 33;
+            this.mapa.Zoom = 0D;
+            // 
             // ctrlDinamica
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.mapa);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.checkBox3);
@@ -414,7 +430,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button7);
             this.Controls.Add(this.lbxDistrito);
             this.Controls.Add(this.btnQuitarDistrito);
             this.Controls.Add(this.btnAgregarDistrito);
@@ -434,6 +449,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ctrlDinamica";
             this.Size = new System.Drawing.Size(1080, 620);
+            this.Load += new System.EventHandler(this.ctrlDinamica_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trckEdadQuinquenal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -456,7 +472,6 @@
         private System.Windows.Forms.Button btnAgregarDistrito;
         private System.Windows.Forms.ComboBox cbxDistrito;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -472,5 +487,6 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnConsultar;
+        private GMap.NET.WindowsForms.GMapControl mapa;
     }
 }

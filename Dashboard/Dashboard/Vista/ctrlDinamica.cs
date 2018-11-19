@@ -7,11 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
 
 namespace Dashboard.Vista
 {
     public partial class ctrlDinamica : UserControl
     {
+
+        GMarkerGoogle marker;
+        GMapOverlay markerOverlay;
+
+        //Coordenadas iniciales de SJ,Costa Rica
+        double LatInicial = 9.9325427;
+        double LngInicial = -84.0795782;
+
         public ctrlDinamica()
         {
             InitializeComponent();
@@ -58,6 +70,18 @@ namespace Dashboard.Vista
             }
 
             lblEdadQuinquenal.Text = edadQuinquenal;
+        }
+
+        private void ctrlDinamica_Load(object sender, EventArgs e)
+        {
+            mapa.DragButton = MouseButtons.Left;
+            mapa.CanDragMap = true;
+            mapa.MapProvider = GMapProviders.GoogleMap;
+            mapa.Position = new PointLatLng(LatInicial, LngInicial);
+            mapa.MinZoom = 0;
+            mapa.MaxZoom = 24;
+            mapa.Zoom = 9;
+            mapa.AutoScroll = true;
         }
     }
 }
