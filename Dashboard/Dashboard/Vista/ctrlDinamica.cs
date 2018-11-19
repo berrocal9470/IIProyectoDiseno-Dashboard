@@ -21,8 +21,8 @@ namespace Dashboard.Vista
         GMapOverlay markerOverlay;
 
         //Coordenadas iniciales de SJ,Costa Rica
-        double LatInicial = 9.9325427;
-        double LngInicial = -84.0795782;
+        double LatInicial = 9.86398955624118;
+        double LngInicial = -83.92074288718004;
 
         public ctrlDinamica()
         {
@@ -80,7 +80,7 @@ namespace Dashboard.Vista
             mapa.Position = new PointLatLng(LatInicial, LngInicial);
             mapa.MinZoom = 0;
             mapa.MaxZoom = 24;
-            mapa.Zoom = 9;
+            mapa.Zoom = 14;
             mapa.AutoScroll = true;
         }
     }
