@@ -122,7 +122,21 @@ namespace Dashboard.Negocio
                 //se hace a nivel general del país
                 else
                 {
+                    dtoGenerable.Provincias = dtoGenerable.Cantones = dtoGenerable.Distritos = null;
 
+                    string consultaGenerada = generarConsulta(dtoGenerable);
+                    querys.Add(consultaGenerada);
+                    int cantidad = daoBD.consultarCantidad(consultaGenerada);
+                    cantidades.Add(cantidad);
+
+                    ResultadoConsultaDinamica result = (ResultadoConsultaDinamica)daoBD.consultarCoordenadas("1", "01", "01");
+
+                    result.Provincia = "País";
+                    result.Canton = null;
+                    result.Distrito = null;
+                    result.Cantidad = cantidad;
+
+                    resultados.Add(result);
                 }
 
                 //return querys;
@@ -311,17 +325,17 @@ namespace Dashboard.Negocio
             //si al llegar aquí sigue siendo null es porque no seleccionaron nada
             if(consulta == null)
             {
-                return null;
+                //quita el where
+                return encabezado.Substring(0, encabezado.Length - 7);
             }
 
             string where = consulta.definirWhere();
-
+            //quita el último and
             return encabezado + where.Substring(0, where.Length - 5);
         }
 
 
-        override
-        public void notify()
+        public override void notify()
         {
             //notifica
         }
