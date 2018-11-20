@@ -27,22 +27,22 @@ namespace Dashboard.Negocio
                     campo = "p.rol = " + resultadoConsulta.Codigo;
                     break;
                 case IndicadorEnum.TipoIndicador.Sexo:
-                    campo = "p.sexo = " + resultadoConsulta.Codigo;
+                    campo = "p.sexo = '" + resultadoConsulta.Nombre + "'";
                     break;
                 case IndicadorEnum.TipoIndicador.TipoLesion:
                     campo = "p.lesion = " + resultadoConsulta.Codigo;
                     break;
                 case IndicadorEnum.TipoIndicador.EdadQuinquenal:
-                    campo = "p.edadQuinquenal = " + resultadoConsulta.Codigo;
+                    campo = "p.edadQuinquenal = '" + resultadoConsulta.Nombre + "'";
                     break;
                 case IndicadorEnum.TipoIndicador.Provincia:
-                    campo = "d.id_provincia = " + resultadoConsulta.Codigo;
+                    campo = "d.id_provincia = '" + resultadoConsulta.Codigo + "'";
                     break;
                 case IndicadorEnum.TipoIndicador.Canton:
-                    campo = "d.id_canton = " + resultadoConsulta.Codigo;
+                    campo = "d.id_canton = '" + resultadoConsulta.Codigo + "'";
                     break;
                 case IndicadorEnum.TipoIndicador.Distrito:
-                    campo = "d.id_distrito = " + resultadoConsulta.Codigo;
+                    campo = "d.id_distrito = '" + resultadoConsulta.Codigo + "'";
                     break;
                 case IndicadorEnum.TipoIndicador.Anno:
                     campo = "r.anno = " + resultadoConsulta.Codigo;

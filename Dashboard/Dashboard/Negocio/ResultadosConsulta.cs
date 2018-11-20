@@ -36,6 +36,10 @@ namespace Dashboard.Negocio
 
             public Boolean hasNext()
             {
+                if(resultadosConsulta.Resultados == null)
+                {
+                    return false;
+                }
                 return index < resultadosConsulta.Resultados.Count;
             }
 
