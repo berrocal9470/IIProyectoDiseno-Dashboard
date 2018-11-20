@@ -9,20 +9,20 @@ namespace Dashboard.Modelo
     class ResultadoObserver : IResultado
     {
         public string Sexo { get; set; }
-        public string EdadQuinquenal { get; set; }
+        public int Edad { get; set; }
 
         //Constructor default
         public ResultadoObserver()
         {
             Sexo = "";
-            EdadQuinquenal = "";
+            Edad = 0;
         }
 
         //Contructor necesario
-        public ResultadoObserver(string sexo, string edadQuinquenal)
+        public ResultadoObserver(string sexo, int edad)
         {
             Sexo = sexo;
-            EdadQuinquenal = edadQuinquenal;
+            Edad = edad;
         }
 
         public void getResultado()

@@ -16,12 +16,16 @@ namespace Dashboard.Vista
     public partial class ctrlLibre : UserControl
     {
         private Controlador Controlador { get; set; }
-        private List<IResultado> resultado;
+        private DTO dto;
 
         public ctrlLibre()
         {
             InitializeComponent();
             Controlador = new Controlador();
+
+            cbxSexo.Items.Add("Hombre");
+            cbxSexo.Items.Add("Mujer");
+            cbxSexo.Items.Add("Desconocido");
         }
 
         private void ctrlLibre_Load(object sender, EventArgs e)
@@ -38,66 +42,16 @@ namespace Dashboard.Vista
             valores.Add(150);
 
             grafGeneral.Series[0].Points.DataBindXY(etiquetas, valores);
-        }
-
-        private void trckEdadQuinquenal_Scroll(object sender, EventArgs e)
-        {
-            int trackValue = trckEdadQuinquenal.Value;
-            int salto = 5;      //tamaño del salto cada que cambia de valor
-
-            if (trackValue % 5 != 0)
-            {
-                trackValue = (trackValue / salto) * salto;
-                trckEdadQuinquenal.Value = trackValue;
-            }
-
-            ajustarEdad();
-        }
-
-        private void chkEdadDesconocida_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkEdadDesconocida.Checked)
-            {
-                lblEdadQuinquenal.Text = "Desconocida";
-            }
-            else
-            {
-                ajustarEdad();
-            }
-        }
-
-        private void ajustarEdad()
-        {
-            int trackValue = trckEdadQuinquenal.Value;
-            string edadQuinquenal;
-
-            if (trackValue == 75)
-            {
-                edadQuinquenal = "Mayor a " + trackValue + " años";
-            }
-            else
-            {
-                edadQuinquenal = "De " + trackValue + " a " + (trackValue + 4) + " años";
-            }
-
-            lblEdadQuinquenal.Text = edadQuinquenal;
-        }
+        }        
 
         //Consulta los datos a la tabla
-        private void consultar()
+        private void btnConsultar_Click(object sender, EventArgs e)
         {
-            DTO dto = Controlador.consultaObserver();
+            dto = Controlador.consultaObserver();
 
-            string result = "";
-            ResultadoObserver obs;
+            procesarGrafico(dto.Resultados);
 
-            for (Iterator iter = dto.Resultados.getIterador(); iter.hasNext();)
-            {
-                obs = (ResultadoObserver) iter.next();
-                result += obs.Sexo + " " + obs.EdadQuinquenal + "\n";
-            }
-
-            MessageBox.Show(result);
+            //MessageBox.Show(result);
         }
 
         public void notify()
@@ -105,9 +59,19 @@ namespace Dashboard.Vista
 
         }
 
-        private void btnConsultar_Click(object sender, EventArgs e)
+        private void procesarGrafico(ResultadosConsulta resultados)
         {
-            consultar();
+            string result = "";
+            ResultadoObserver obs;
+
+            for (Iterator iter = resultados.getIterador(); iter.hasNext();)
+            {
+                obs = (ResultadoObserver)iter.next();
+                result += obs.Sexo + " " + obs.Edad + "\n";
+            }
+
+
+
         }
     }
 }

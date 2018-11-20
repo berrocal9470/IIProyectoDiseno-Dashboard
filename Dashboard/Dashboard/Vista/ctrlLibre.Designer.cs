@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.cbxSexo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.chkEdadDesconocida = new System.Windows.Forms.CheckBox();
-            this.lblEdadQuinquenal = new System.Windows.Forms.Label();
-            this.trckEdadQuinquenal = new System.Windows.Forms.TrackBar();
             this.label7 = new System.Windows.Forms.Label();
             this.grafGeneral = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ((System.ComponentModel.ISupportInitialize)(this.trckEdadQuinquenal)).BeginInit();
+            this.numDe = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.grafGeneral)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -71,7 +73,7 @@
             // cbxSexo
             // 
             this.cbxSexo.FormattingEnabled = true;
-            this.cbxSexo.Location = new System.Drawing.Point(190, 228);
+            this.cbxSexo.Location = new System.Drawing.Point(113, 203);
             this.cbxSexo.Name = "cbxSexo";
             this.cbxSexo.Size = new System.Drawing.Size(121, 24);
             this.cbxSexo.TabIndex = 36;
@@ -80,86 +82,101 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(147, 230);
+            this.label5.Location = new System.Drawing.Point(57, 205);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 17);
             this.label5.TabIndex = 35;
             this.label5.Text = "Sexo";
             // 
-            // chkEdadDesconocida
-            // 
-            this.chkEdadDesconocida.AutoSize = true;
-            this.chkEdadDesconocida.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEdadDesconocida.Location = new System.Drawing.Point(193, 304);
-            this.chkEdadDesconocida.Name = "chkEdadDesconocida";
-            this.chkEdadDesconocida.Size = new System.Drawing.Size(151, 21);
-            this.chkEdadDesconocida.TabIndex = 40;
-            this.chkEdadDesconocida.Text = "Edad Desconocida";
-            this.chkEdadDesconocida.UseVisualStyleBackColor = true;
-            this.chkEdadDesconocida.CheckedChanged += new System.EventHandler(this.chkEdadDesconocida_CheckedChanged);
-            // 
-            // lblEdadQuinquenal
-            // 
-            this.lblEdadQuinquenal.AutoSize = true;
-            this.lblEdadQuinquenal.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEdadQuinquenal.Location = new System.Drawing.Point(190, 284);
-            this.lblEdadQuinquenal.Name = "lblEdadQuinquenal";
-            this.lblEdadQuinquenal.Size = new System.Drawing.Size(96, 17);
-            this.lblEdadQuinquenal.TabIndex = 39;
-            this.lblEdadQuinquenal.Text = "De 0 a 4 años";
-            // 
-            // trckEdadQuinquenal
-            // 
-            this.trckEdadQuinquenal.Location = new System.Drawing.Point(48, 343);
-            this.trckEdadQuinquenal.Maximum = 75;
-            this.trckEdadQuinquenal.Name = "trckEdadQuinquenal";
-            this.trckEdadQuinquenal.Size = new System.Drawing.Size(399, 45);
-            this.trckEdadQuinquenal.SmallChange = 5;
-            this.trckEdadQuinquenal.TabIndex = 38;
-            this.trckEdadQuinquenal.Tag = "";
-            this.trckEdadQuinquenal.TickFrequency = 5;
-            this.trckEdadQuinquenal.Scroll += new System.EventHandler(this.trckEdadQuinquenal_Scroll);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(63, 284);
+            this.label7.Location = new System.Drawing.Point(52, 264);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 17);
+            this.label7.Size = new System.Drawing.Size(42, 17);
             this.label7.TabIndex = 37;
-            this.label7.Text = "Edad Quinquenal";
+            this.label7.Text = "Edad";
             // 
             // grafGeneral
             // 
             this.grafGeneral.BackColor = System.Drawing.Color.Transparent;
-            this.grafGeneral.BorderSkin.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            this.grafGeneral.ChartAreas.Add(chartArea1);
-            legend1.BackColor = System.Drawing.Color.Transparent;
-            legend1.Name = "Legend1";
-            this.grafGeneral.Legends.Add(legend1);
-            this.grafGeneral.Location = new System.Drawing.Point(555, 213);
+            chartArea2.AxisX.MajorGrid.LineWidth = 0;
+            chartArea2.AxisY.MajorGrid.LineWidth = 0;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.grafGeneral.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.Name = "Legend1";
+            this.grafGeneral.Legends.Add(legend2);
+            this.grafGeneral.Location = new System.Drawing.Point(344, 156);
             this.grafGeneral.Name = "grafGeneral";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.IsValueShownAsLabel = true;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.grafGeneral.Series.Add(series1);
-            this.grafGeneral.Size = new System.Drawing.Size(470, 319);
-            this.grafGeneral.TabIndex = 41;
-            this.grafGeneral.Text = "chart1";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.IsValueShownAsLabel = true;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.grafGeneral.Series.Add(series2);
+            this.grafGeneral.Size = new System.Drawing.Size(726, 420);
+            this.grafGeneral.TabIndex = 42;
+            this.grafGeneral.Text = "chart2";
+            // 
+            // numDe
+            // 
+            this.numDe.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numDe.Location = new System.Drawing.Point(142, 262);
+            this.numDe.Maximum = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
+            this.numDe.Name = "numDe";
+            this.numDe.Size = new System.Drawing.Size(46, 23);
+            this.numDe.TabIndex = 43;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(110, 263);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 17);
+            this.label2.TabIndex = 44;
+            this.label2.Text = "De";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(196, 264);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(17, 17);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "a";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.Location = new System.Drawing.Point(219, 262);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(46, 23);
+            this.numericUpDown1.TabIndex = 45;
             // 
             // ctrlLibre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.numDe);
             this.Controls.Add(this.grafGeneral);
-            this.Controls.Add(this.chkEdadDesconocida);
-            this.Controls.Add(this.lblEdadQuinquenal);
-            this.Controls.Add(this.trckEdadQuinquenal);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cbxSexo);
             this.Controls.Add(this.label5);
@@ -170,8 +187,9 @@
             this.Name = "ctrlLibre";
             this.Size = new System.Drawing.Size(1080, 620);
             this.Load += new System.EventHandler(this.ctrlLibre_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.trckEdadQuinquenal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grafGeneral)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,10 +201,11 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.ComboBox cbxSexo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox chkEdadDesconocida;
-        private System.Windows.Forms.Label lblEdadQuinquenal;
-        private System.Windows.Forms.TrackBar trckEdadQuinquenal;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataVisualization.Charting.Chart grafGeneral;
+        private System.Windows.Forms.NumericUpDown numDe;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
