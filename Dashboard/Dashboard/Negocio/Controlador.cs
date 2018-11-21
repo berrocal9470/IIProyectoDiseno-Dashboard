@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 
 namespace Dashboard.Negocio
 {
-    class Controlador : Observable
+    class Controlador : IObserver
     {
         //Así se usaría el enum en las otras clases
         //EnumTipoConsulta.TipoConsulta tipoConsulta = EnumTipoConsulta.TipoConsulta.Dinamica;
 
         private DAOBD daoBD;
+        private GraficoObserver observador;
 
         public Controlador()
         {
             daoBD = new DAOBD();
+            observador = new GraficoObserver();
         }
 
         public DTO consultarDinamica(object obj)
@@ -155,10 +157,10 @@ namespace Dashboard.Negocio
             return dto;
         }
 
-        public DTO consultaObserver()
+        public void consultaObserver()
         {
             ResultadosConsulta resultado = new ResultadosConsulta(daoBD.consultaObserver());
-            return generarDTO(resultado);
+            observador.Datos = resultado;
         }
 
         public DTO consultarTabla(string nombreTabla)
@@ -335,9 +337,9 @@ namespace Dashboard.Negocio
         }
 
 
-        public override void notify()
+        public object update(object observado, string rol)
         {
-            //notifica
+            return observador.update(observado, rol);
         }
     }
 }

@@ -8,6 +8,8 @@ namespace Dashboard.Negocio
 {
     interface IObserver
     {
-        void update(string componente, object resultados);
+        //El componente es el objeto de la interfaz que se está observando
+        //El rol es para distinguir objetos iguales
+        object update(object componente, string rol);
     }
 }

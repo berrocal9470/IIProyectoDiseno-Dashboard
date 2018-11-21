@@ -8,6 +8,6 @@ namespace Dashboard.Negocio
 {
     public abstract class Observable
     {
-        public abstract void notify();
+        public abstract object notify(object observado, string rol);
     }
 }
