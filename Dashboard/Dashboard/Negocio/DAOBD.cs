@@ -15,7 +15,7 @@ namespace Dashboard.Negocio
         public DAOBD()
         {
             conexionSQL = new SqlConnection(System.Configuration.ConfigurationManager
-                                    .ConnectionStrings["Dashboard.Properties.Settings.Proyecto2DisennoConnectionString"]
+                                    .ConnectionStrings["Dashboard.Properties.Settings.Proyecto2DisennoConnectionString1"]
                                     .ConnectionString);
         }
 

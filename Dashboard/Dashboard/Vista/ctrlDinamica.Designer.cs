@@ -70,7 +70,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(450, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 21);
+            this.label1.Size = new System.Drawing.Size(99, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "Provincia";
             // 
@@ -80,7 +80,7 @@
             this.cbxProvincia.FormattingEnabled = true;
             this.cbxProvincia.Location = new System.Drawing.Point(454, 52);
             this.cbxProvincia.Name = "cbxProvincia";
-            this.cbxProvincia.Size = new System.Drawing.Size(140, 25);
+            this.cbxProvincia.Size = new System.Drawing.Size(140, 29);
             this.cbxProvincia.TabIndex = 3;
             // 
             // btnAgregarProvincia
@@ -117,20 +117,20 @@
             // 
             this.lbxProvincia.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxProvincia.FormattingEnabled = true;
-            this.lbxProvincia.ItemHeight = 17;
+            this.lbxProvincia.ItemHeight = 21;
             this.lbxProvincia.Location = new System.Drawing.Point(454, 120);
             this.lbxProvincia.Name = "lbxProvincia";
-            this.lbxProvincia.Size = new System.Drawing.Size(140, 72);
+            this.lbxProvincia.Size = new System.Drawing.Size(140, 67);
             this.lbxProvincia.TabIndex = 6;
             // 
             // lbxCanton
             // 
             this.lbxCanton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxCanton.FormattingEnabled = true;
-            this.lbxCanton.ItemHeight = 17;
+            this.lbxCanton.ItemHeight = 21;
             this.lbxCanton.Location = new System.Drawing.Point(670, 120);
             this.lbxCanton.Name = "lbxCanton";
-            this.lbxCanton.Size = new System.Drawing.Size(140, 72);
+            this.lbxCanton.Size = new System.Drawing.Size(140, 67);
             this.lbxCanton.TabIndex = 11;
             // 
             // btnQuitarCanton
@@ -167,7 +167,7 @@
             this.cbxCanton.FormattingEnabled = true;
             this.cbxCanton.Location = new System.Drawing.Point(669, 52);
             this.cbxCanton.Name = "cbxCanton";
-            this.cbxCanton.Size = new System.Drawing.Size(141, 25);
+            this.cbxCanton.Size = new System.Drawing.Size(141, 29);
             this.cbxCanton.TabIndex = 8;
             // 
             // label2
@@ -176,7 +176,7 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(666, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 21);
+            this.label2.Size = new System.Drawing.Size(84, 23);
             this.label2.TabIndex = 7;
             this.label2.Text = "Canton";
             // 
@@ -184,10 +184,10 @@
             // 
             this.lbxDistrito.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxDistrito.FormattingEnabled = true;
-            this.lbxDistrito.ItemHeight = 17;
+            this.lbxDistrito.ItemHeight = 21;
             this.lbxDistrito.Location = new System.Drawing.Point(879, 120);
             this.lbxDistrito.Name = "lbxDistrito";
-            this.lbxDistrito.Size = new System.Drawing.Size(140, 72);
+            this.lbxDistrito.Size = new System.Drawing.Size(140, 67);
             this.lbxDistrito.TabIndex = 16;
             // 
             // btnQuitarDistrito
@@ -224,7 +224,7 @@
             this.cbxDistrito.FormattingEnabled = true;
             this.cbxDistrito.Location = new System.Drawing.Point(879, 52);
             this.cbxDistrito.Name = "cbxDistrito";
-            this.cbxDistrito.Size = new System.Drawing.Size(140, 25);
+            this.cbxDistrito.Size = new System.Drawing.Size(140, 29);
             this.cbxDistrito.TabIndex = 13;
             // 
             // label3
@@ -233,7 +233,7 @@
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(875, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 21);
+            this.label3.Size = new System.Drawing.Size(72, 23);
             this.label3.TabIndex = 12;
             this.label3.Text = "Distrito";
             // 
@@ -243,7 +243,7 @@
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(83, 174);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 17);
+            this.label4.Size = new System.Drawing.Size(92, 21);
             this.label4.TabIndex = 18;
             this.label4.Text = "Afectado";
             // 
@@ -253,7 +253,7 @@
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(115, 221);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 17);
+            this.label5.Size = new System.Drawing.Size(48, 21);
             this.label5.TabIndex = 19;
             this.label5.Text = "Sexo";
             // 
@@ -263,7 +263,7 @@
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(105, 269);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 17);
+            this.label6.Size = new System.Drawing.Size(60, 21);
             this.label6.TabIndex = 20;
             this.label6.Text = "Lesión";
             // 
@@ -273,7 +273,7 @@
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(31, 327);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 17);
+            this.label7.Size = new System.Drawing.Size(156, 21);
             this.label7.TabIndex = 21;
             this.label7.Text = "Edad Quinquenal";
             // 
@@ -282,7 +282,7 @@
             this.cbxAfectado.FormattingEnabled = true;
             this.cbxAfectado.Location = new System.Drawing.Point(158, 172);
             this.cbxAfectado.Name = "cbxAfectado";
-            this.cbxAfectado.Size = new System.Drawing.Size(121, 24);
+            this.cbxAfectado.Size = new System.Drawing.Size(121, 27);
             this.cbxAfectado.TabIndex = 22;
             // 
             // cbxSexo
@@ -290,7 +290,7 @@
             this.cbxSexo.FormattingEnabled = true;
             this.cbxSexo.Location = new System.Drawing.Point(158, 219);
             this.cbxSexo.Name = "cbxSexo";
-            this.cbxSexo.Size = new System.Drawing.Size(121, 24);
+            this.cbxSexo.Size = new System.Drawing.Size(121, 27);
             this.cbxSexo.TabIndex = 23;
             // 
             // cbxLesion
@@ -298,7 +298,7 @@
             this.cbxLesion.FormattingEnabled = true;
             this.cbxLesion.Location = new System.Drawing.Point(158, 267);
             this.cbxLesion.Name = "cbxLesion";
-            this.cbxLesion.Size = new System.Drawing.Size(121, 24);
+            this.cbxLesion.Size = new System.Drawing.Size(121, 27);
             this.cbxLesion.TabIndex = 24;
             // 
             // trckEdadQuinquenal
@@ -306,7 +306,7 @@
             this.trckEdadQuinquenal.Location = new System.Drawing.Point(16, 417);
             this.trckEdadQuinquenal.Maximum = 75;
             this.trckEdadQuinquenal.Name = "trckEdadQuinquenal";
-            this.trckEdadQuinquenal.Size = new System.Drawing.Size(399, 45);
+            this.trckEdadQuinquenal.Size = new System.Drawing.Size(399, 56);
             this.trckEdadQuinquenal.SmallChange = 5;
             this.trckEdadQuinquenal.TabIndex = 25;
             this.trckEdadQuinquenal.Tag = "";
@@ -319,7 +319,7 @@
             this.lblEdadQuinquenal.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEdadQuinquenal.Location = new System.Drawing.Point(158, 327);
             this.lblEdadQuinquenal.Name = "lblEdadQuinquenal";
-            this.lblEdadQuinquenal.Size = new System.Drawing.Size(96, 17);
+            this.lblEdadQuinquenal.Size = new System.Drawing.Size(124, 21);
             this.lblEdadQuinquenal.TabIndex = 26;
             this.lblEdadQuinquenal.Text = "De 0 a 4 años";
             // 
@@ -329,7 +329,7 @@
             this.chkEdadDesconocida.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkEdadDesconocida.Location = new System.Drawing.Point(161, 347);
             this.chkEdadDesconocida.Name = "chkEdadDesconocida";
-            this.chkEdadDesconocida.Size = new System.Drawing.Size(151, 21);
+            this.chkEdadDesconocida.Size = new System.Drawing.Size(194, 25);
             this.chkEdadDesconocida.TabIndex = 27;
             this.chkEdadDesconocida.Text = "Edad Desconocida";
             this.chkEdadDesconocida.UseVisualStyleBackColor = true;
@@ -341,7 +341,7 @@
             this.chk2014.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk2014.Location = new System.Drawing.Point(158, 134);
             this.chk2014.Name = "chk2014";
-            this.chk2014.Size = new System.Drawing.Size(55, 21);
+            this.chk2014.Size = new System.Drawing.Size(68, 25);
             this.chk2014.TabIndex = 28;
             this.chk2014.Text = "2014";
             this.chk2014.UseVisualStyleBackColor = true;
@@ -352,7 +352,7 @@
             this.chk2013.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk2013.Location = new System.Drawing.Point(158, 108);
             this.chk2013.Name = "chk2013";
-            this.chk2013.Size = new System.Drawing.Size(55, 21);
+            this.chk2013.Size = new System.Drawing.Size(68, 25);
             this.chk2013.TabIndex = 29;
             this.chk2013.Text = "2013";
             this.chk2013.UseVisualStyleBackColor = true;
@@ -363,7 +363,7 @@
             this.chk2012.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk2012.Location = new System.Drawing.Point(158, 82);
             this.chk2012.Name = "chk2012";
-            this.chk2012.Size = new System.Drawing.Size(55, 21);
+            this.chk2012.Size = new System.Drawing.Size(68, 25);
             this.chk2012.TabIndex = 30;
             this.chk2012.Text = "2012";
             this.chk2012.UseVisualStyleBackColor = true;
@@ -374,7 +374,7 @@
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(101, 83);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 17);
+            this.label8.Size = new System.Drawing.Size(51, 21);
             this.label8.TabIndex = 31;
             this.label8.Text = "Años";
             // 
@@ -384,7 +384,7 @@
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultar.ForeColor = System.Drawing.SystemColors.Info;
-            this.btnConsultar.Location = new System.Drawing.Point(939, 251);
+            this.btnConsultar.Location = new System.Drawing.Point(939, 232);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(107, 41);
             this.btnConsultar.TabIndex = 32;
@@ -400,7 +400,7 @@
             this.mapa.GrayScaleMode = false;
             this.mapa.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.mapa.LevelsKeepInMemmory = 5;
-            this.mapa.Location = new System.Drawing.Point(469, 298);
+            this.mapa.Location = new System.Drawing.Point(442, 279);
             this.mapa.MarkersEnabled = true;
             this.mapa.MaxZoom = 2;
             this.mapa.MinZoom = 2;
@@ -414,7 +414,7 @@
             this.mapa.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.mapa.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.mapa.ShowTileGridLines = false;
-            this.mapa.Size = new System.Drawing.Size(577, 301);
+            this.mapa.Size = new System.Drawing.Size(604, 321);
             this.mapa.TabIndex = 33;
             this.mapa.Zoom = 0D;
             // 
@@ -424,7 +424,7 @@
             this.chkSinEdad.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkSinEdad.Location = new System.Drawing.Point(161, 374);
             this.chkSinEdad.Name = "chkSinEdad";
-            this.chkSinEdad.Size = new System.Drawing.Size(83, 21);
+            this.chkSinEdad.Size = new System.Drawing.Size(105, 25);
             this.chkSinEdad.TabIndex = 34;
             this.chkSinEdad.Text = "Sin edad";
             this.chkSinEdad.UseVisualStyleBackColor = true;
@@ -432,7 +432,7 @@
             // 
             // ctrlDinamica
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.chkSinEdad);
             this.Controls.Add(this.mapa);

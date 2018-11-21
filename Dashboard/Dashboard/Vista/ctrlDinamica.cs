@@ -18,10 +18,6 @@ namespace Dashboard.Vista
 {
     public partial class ctrlDinamica : UserControl
     {
-
-        GMarkerGoogle marker;
-        GMapOverlay markerOverlay;
-
         private Controlador controlador = new Controlador();
         
         //se mantienen los datos para usar luego al momento de seleccionar alguno para la consulta
@@ -55,8 +51,8 @@ namespace Dashboard.Vista
             mapa.MapProvider = GMapProviders.GoogleMap;
             mapa.Position = new PointLatLng(LatInicial, LngInicial);
             mapa.MinZoom = 0;
-            mapa.MaxZoom = 24;
-            mapa.Zoom = 14;
+            mapa.MaxZoom = 14;
+            mapa.Zoom = 8;
             mapa.AutoScroll = true;
 
             cbxSexo.Items.Add("Hombre");
@@ -407,12 +403,25 @@ namespace Dashboard.Vista
             //MessageBox.Show(where);
 
             DTO dto = controlador.consultarDinamica(dtoConsultaDinamica);
-            string msj = "";
+            //string msj = "";
+            mapa.Overlays.Clear();
+            GMarkerGoogle marker;
+            GMapOverlay markerOverlay;
+            markerOverlay = new GMapOverlay("Marcador");
             ResultadoConsultaDinamica obs;
             for (Iterator iter = dto.Resultados.getIterador(); iter.hasNext();)
             {
                 obs = (ResultadoConsultaDinamica)iter.next();
-                msj += obs.Provincia;
+                
+                marker = new GMarkerGoogle(new PointLatLng(obs.Latitud, obs.Longitud), GMarkerGoogleType.red);
+                markerOverlay.Markers.Add(marker);
+
+                //texto
+                marker.ToolTipMode = MarkerTooltipMode.Always;
+                marker.ToolTipText = string.Format("Casos: "+obs.Cantidad);
+
+
+                /*msj += obs.Provincia;
                 if(obs.Canton != null && !obs.Canton.Equals(""))
                 {
                     msj += " " + obs.Canton;
@@ -421,9 +430,15 @@ namespace Dashboard.Vista
                 {
                     msj += " " + obs.Distrito;
                 }
-                msj += " " + obs.Latitud + " " + obs.Longitud + " " + obs.Cantidad + "\n"; 
+                msj += " " + obs.Latitud + " " + obs.Longitud + " " + obs.Cantidad + "\n";*/
+
+                mapa.Position = new PointLatLng(obs.Latitud, obs.Longitud);
+
             }
-            MessageBox.Show(msj);
+            //Agregar overlay al map
+            mapa.Overlays.Add(markerOverlay);
+
+            //MessageBox.Show(msj);
 
         }
 
