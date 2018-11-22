@@ -58,6 +58,41 @@ namespace Dashboard.Negocio
             }
         }
 
+
+
+        public List<IResultado> consultarEdadQ(object obj)
+        {
+            string selectStatement = (string)obj;
+            List<ResultadoTablas> resultado = new List<ResultadoTablas>();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Connection = conexionSQL;
+            cmd.CommandText = selectStatement;
+
+            try
+            {
+                conexionSQL.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    ResultadoTablas tabla = new ResultadoTablas();
+                    tabla.Codigo = 0;
+                    tabla.Nombre = reader[0].ToString();
+
+                    resultado.Add(tabla);
+                }
+                conexionSQL.Close();
+                return resultado.Cast<IResultado>().ToList();
+            }
+            catch (SqlException e)
+            {
+                return null;
+            }
+        }
+
+
+
         //se usa para apoyar el método de la consulta dinámica, retorna los count de cada query
         public int consultarCantidad(string query)
         {
@@ -116,8 +151,15 @@ namespace Dashboard.Negocio
 
         public List<IResultado> consultarTabla(string nombreTabla)
         {
-            string selectStatement = "SELECT * FROM " + nombreTabla + " ;";
-            return consultar(selectStatement);
+            if (nombreTabla.Equals("Quinquenal"))
+            {
+                string selectStatement = "select distinct edadQuinquenal from Personas order by 1 asc";
+                return consultarEdadQ(selectStatement);
+            }
+            else {
+                string selectStatement = "SELECT * FROM " + nombreTabla + " ;";
+                return consultar(selectStatement);
+            }
         }
 
         public List<IResultado> consultarCantones(string idProvincia)
@@ -163,5 +205,86 @@ namespace Dashboard.Negocio
                 }
             }
         }
+
+
+
+
+
+        //Consulta indicador 
+        public List<IResultado> consultaIndicador(object obj)
+        {
+            if (obj is string)
+            {
+                string selectStatement = (string)obj;
+                List<ResultadoConsultaIndicador> resultado = new List<ResultadoConsultaIndicador>();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = conexionSQL;
+                cmd.CommandText = selectStatement;
+
+                try
+                {
+                    conexionSQL.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        ResultadoConsultaIndicador tabla = new ResultadoConsultaIndicador();
+                        tabla.cantidad = Int32.Parse(reader[0].ToString());
+                        tabla.nombre = reader[1].ToString();
+                        tabla.mes = reader[2].ToString();
+                        tabla.anno = Int32.Parse(reader[3].ToString());
+
+                        resultado.Add(tabla);
+                    }
+                    conexionSQL.Close();
+                    return resultado.Cast<IResultado>().ToList();
+                }
+                catch (SqlException e)
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public List<IResultado> consultaIndicador_roles()
+        {
+            string selectStatement = "select count(r.identificador) as cantidad, r1.tipo, mes, anno "+
+                            "from Registros r join Personas p on r.identificador = p.identificador "+
+                                "join roles r1 on p.rol = r1.codigo " +
+                            "group by r1.tipo, r.mes, r.anno" + ";";
+            return consultaIndicador(selectStatement);
+        }
+
+        public List<IResultado> consultaIndicador_Lesiones()
+        {
+            string selectStatement = "select count(r.identificador) as cantidad, l.tipo, mes, anno " +
+                            "from Registros r join Personas p on r.identificador = p.identificador " +
+                                "join Lesiones l on p.lesion = l.codigo " +
+                            "group by l.tipo, r.mes, r.anno" + ";";
+            return consultaIndicador(selectStatement);
+        }
+
+        public List<IResultado> consultaIndicador_Sexo()
+        {
+            string selectStatement = "select count(r.identificador) as cantidad, p.sexo,r.mes, anno " +
+                            "from Registros r join Personas p on r.identificador = p.identificador " +
+                            "group by p.sexo, r.mes, r.anno" + ";";
+            return consultaIndicador(selectStatement);
+        }
+
+
+        public List<IResultado> consultaIndicador_EdadQ()
+        {
+            string selectStatement = "select count(r.identificador) as cantidad, p.edadQuinquenal,r.mes, anno " +
+                            "from Registros r join Personas p on r.identificador = p.identificador " +
+                            "group by p.edadQuinquenal, r.mes, r.anno" + ";";
+            return consultaIndicador(selectStatement);
+        }
+
     }
 }

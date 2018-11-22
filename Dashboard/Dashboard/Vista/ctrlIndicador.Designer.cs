@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbxIndicador = new System.Windows.Forms.ComboBox();
+            this.cbxIndicadorEspecifico = new System.Windows.Forms.ComboBox();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.grafGeneral = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.graf2012 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -67,23 +67,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Indicador";
             // 
-            // comboBox1
+            // cbxIndicador
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(353, 35);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(147, 29);
-            this.comboBox1.TabIndex = 3;
+            this.cbxIndicador.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxIndicador.FormattingEnabled = true;
+            this.cbxIndicador.Location = new System.Drawing.Point(353, 35);
+            this.cbxIndicador.Name = "cbxIndicador";
+            this.cbxIndicador.Size = new System.Drawing.Size(147, 29);
+            this.cbxIndicador.TabIndex = 3;
+            this.cbxIndicador.SelectedIndexChanged += new System.EventHandler(this.cbxIndicador_SelectedIndexChanged);
             // 
-            // comboBox2
+            // cbxIndicadorEspecifico
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(515, 35);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 29);
-            this.comboBox2.TabIndex = 4;
+            this.cbxIndicadorEspecifico.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxIndicadorEspecifico.FormattingEnabled = true;
+            this.cbxIndicadorEspecifico.Location = new System.Drawing.Point(515, 35);
+            this.cbxIndicadorEspecifico.Name = "cbxIndicadorEspecifico";
+            this.cbxIndicadorEspecifico.Size = new System.Drawing.Size(121, 29);
+            this.cbxIndicadorEspecifico.TabIndex = 4;
             // 
             // btnConsultar
             // 
@@ -97,25 +98,26 @@
             this.btnConsultar.TabIndex = 33;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // grafGeneral
             // 
             this.grafGeneral.BackColor = System.Drawing.Color.Transparent;
             this.grafGeneral.BorderSkin.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            this.grafGeneral.ChartAreas.Add(chartArea1);
-            legend1.BackColor = System.Drawing.Color.Transparent;
-            legend1.Name = "Legend1";
-            this.grafGeneral.Legends.Add(legend1);
+            chartArea9.BackColor = System.Drawing.Color.Transparent;
+            chartArea9.Name = "ChartArea1";
+            this.grafGeneral.ChartAreas.Add(chartArea9);
+            legend9.BackColor = System.Drawing.Color.Transparent;
+            legend9.Name = "Legend1";
+            this.grafGeneral.Legends.Add(legend9);
             this.grafGeneral.Location = new System.Drawing.Point(36, 87);
             this.grafGeneral.Name = "grafGeneral";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.IsValueShownAsLabel = true;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.grafGeneral.Series.Add(series1);
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series9.IsValueShownAsLabel = true;
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.grafGeneral.Series.Add(series9);
             this.grafGeneral.Size = new System.Drawing.Size(338, 215);
             this.grafGeneral.TabIndex = 34;
             this.grafGeneral.Text = "chart1";
@@ -123,23 +125,23 @@
             // graf2012
             // 
             this.graf2012.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.AxisX.MajorGrid.LineWidth = 0;
-            chartArea2.AxisY.MajorGrid.LineWidth = 0;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea2.Name = "ChartArea1";
-            this.graf2012.ChartAreas.Add(chartArea2);
-            legend2.BackColor = System.Drawing.Color.Transparent;
-            legend2.Name = "Legend1";
-            this.graf2012.Legends.Add(legend2);
+            chartArea10.AxisX.MajorGrid.LineWidth = 0;
+            chartArea10.AxisY.MajorGrid.LineWidth = 0;
+            chartArea10.BackColor = System.Drawing.Color.Transparent;
+            chartArea10.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea10.Name = "ChartArea1";
+            this.graf2012.ChartAreas.Add(chartArea10);
+            legend10.BackColor = System.Drawing.Color.Transparent;
+            legend10.Name = "Legend1";
+            this.graf2012.Legends.Add(legend10);
             this.graf2012.Location = new System.Drawing.Point(16, 364);
             this.graf2012.Name = "graf2012";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.IsValueShownAsLabel = true;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.graf2012.Series.Add(series2);
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series10.IsValueShownAsLabel = true;
+            series10.Legend = "Legend1";
+            series10.Name = "Series1";
+            this.graf2012.Series.Add(series10);
             this.graf2012.Size = new System.Drawing.Size(322, 215);
             this.graf2012.TabIndex = 35;
             this.graf2012.Text = "chart2";
@@ -147,23 +149,23 @@
             // graf2013
             // 
             this.graf2013.BackColor = System.Drawing.Color.Transparent;
-            chartArea3.AxisX.MajorGrid.LineWidth = 0;
-            chartArea3.AxisY.MajorGrid.LineWidth = 0;
-            chartArea3.BackColor = System.Drawing.Color.Transparent;
-            chartArea3.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea3.Name = "ChartArea1";
-            this.graf2013.ChartAreas.Add(chartArea3);
-            legend3.BackColor = System.Drawing.Color.Transparent;
-            legend3.Name = "Legend1";
-            this.graf2013.Legends.Add(legend3);
+            chartArea11.AxisX.MajorGrid.LineWidth = 0;
+            chartArea11.AxisY.MajorGrid.LineWidth = 0;
+            chartArea11.BackColor = System.Drawing.Color.Transparent;
+            chartArea11.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea11.Name = "ChartArea1";
+            this.graf2013.ChartAreas.Add(chartArea11);
+            legend11.BackColor = System.Drawing.Color.Transparent;
+            legend11.Name = "Legend1";
+            this.graf2013.Legends.Add(legend11);
             this.graf2013.Location = new System.Drawing.Point(391, 364);
             this.graf2013.Name = "graf2013";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
-            series3.IsValueShownAsLabel = true;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.graf2013.Series.Add(series3);
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series11.IsValueShownAsLabel = true;
+            series11.Legend = "Legend1";
+            series11.Name = "Series1";
+            this.graf2013.Series.Add(series11);
             this.graf2013.Size = new System.Drawing.Size(322, 215);
             this.graf2013.TabIndex = 38;
             this.graf2013.Text = "chart3";
@@ -171,23 +173,23 @@
             // graf2014
             // 
             this.graf2014.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.AxisX.MajorGrid.LineWidth = 0;
-            chartArea4.AxisY.MajorGrid.LineWidth = 0;
-            chartArea4.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea4.Name = "ChartArea1";
-            this.graf2014.ChartAreas.Add(chartArea4);
-            legend4.BackColor = System.Drawing.Color.Transparent;
-            legend4.Name = "Legend1";
-            this.graf2014.Legends.Add(legend4);
+            chartArea12.AxisX.MajorGrid.LineWidth = 0;
+            chartArea12.AxisY.MajorGrid.LineWidth = 0;
+            chartArea12.BackColor = System.Drawing.Color.Transparent;
+            chartArea12.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea12.Name = "ChartArea1";
+            this.graf2014.ChartAreas.Add(chartArea12);
+            legend12.BackColor = System.Drawing.Color.Transparent;
+            legend12.Name = "Legend1";
+            this.graf2014.Legends.Add(legend12);
             this.graf2014.Location = new System.Drawing.Point(739, 364);
             this.graf2014.Name = "graf2014";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series4.IsValueShownAsLabel = true;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.graf2014.Series.Add(series4);
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series12.IsValueShownAsLabel = true;
+            series12.Legend = "Legend1";
+            series12.Name = "Series1";
+            this.graf2014.Series.Add(series12);
             this.graf2014.Size = new System.Drawing.Size(322, 215);
             this.graf2014.TabIndex = 39;
             this.graf2014.Text = "chart4";
@@ -234,8 +236,8 @@
             this.Controls.Add(this.graf2012);
             this.Controls.Add(this.grafGeneral);
             this.Controls.Add(this.btnConsultar);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxIndicadorEspecifico);
+            this.Controls.Add(this.cbxIndicador);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -254,8 +256,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbxIndicador;
+        private System.Windows.Forms.ComboBox cbxIndicadorEspecifico;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.DataVisualization.Charting.Chart grafGeneral;
         private System.Windows.Forms.DataVisualization.Charting.Chart graf2012;

@@ -8,21 +8,27 @@ namespace Dashboard.Modelo
 {
     class ResultadoConsultaIndicador : IResultado
     {
-        public string Indicador { get; set; }
-        public string Valor { get; set; }
+        public int cantidad { get; set; }
+        public string nombre { get; set; }
+        public string mes { get; set; }
+        public int anno { get; set; }
 
         //Contructor default
         public ResultadoConsultaIndicador()
         {
-            Indicador = "";
-            Valor = "";
+            cantidad = 0;
+            nombre = "";
+            mes = "";
+            anno = 0;
         }
 
         //Constructor necesario
-        public ResultadoConsultaIndicador(string indicador, string valor)
+        public ResultadoConsultaIndicador(int pCantidad, string pNombre, string pMes, int pAnno)
         {
-            Indicador = indicador;
-            Valor = valor;
+            cantidad = pCantidad;
+            nombre = pNombre;
+            mes = pMes;
+            anno = pAnno;
         }
 
         public void getResultado()

@@ -166,7 +166,7 @@ namespace Dashboard.Negocio
         public DTO consultarTabla(string nombreTabla)
         {
             ResultadosConsulta resultado = new ResultadosConsulta(daoBD.consultarTabla(nombreTabla));
-            return generarDTO(resultado);
+            return generarDTO(resultado);      
         }
 
         public DTO consultarCantones(string idProvincia)
@@ -341,5 +341,34 @@ namespace Dashboard.Negocio
         {
             return observador.update(observado, rol);
         }
+
+
+        //CONSULTA INDICADOR
+        public DTO consultarIndicador(string indicador)
+        {
+            ResultadosConsulta resultado;
+            if (indicador.Equals("Tipo de Afectado"))
+            {
+                resultado = new ResultadosConsulta(daoBD.consultaIndicador_roles());
+                return generarDTO(resultado);
+            }
+            else if (indicador.Equals("Sexo")) {
+                resultado = new ResultadosConsulta(daoBD.consultaIndicador_Sexo());
+                return generarDTO(resultado);
+            }
+            else if (indicador.Equals("Tipo de Lesion"))
+            {
+                resultado = new ResultadosConsulta(daoBD.consultaIndicador_Lesiones());
+                return generarDTO(resultado);
+            }
+            else //edad quinquenal
+            {
+                resultado = new ResultadosConsulta(daoBD.consultaIndicador_EdadQ());
+                return generarDTO(resultado);
+            }
+        }
+
+
+
     }
 }

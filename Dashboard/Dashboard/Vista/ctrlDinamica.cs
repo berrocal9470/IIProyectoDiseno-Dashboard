@@ -33,7 +33,7 @@ namespace Dashboard.Vista
         //este es para mantener la selección y poder cargar correctamente los distritos
         private ResultadoTablas provinciaSeleccionada;
 
-        //Coordenadas iniciales de SJ,Costa Rica
+        //Coordenadas iniciales de Cartago,Costa Rica
         private double LatInicial = 9.86398955624118;
         private double LngInicial = -83.92074288718004;
 
@@ -398,12 +398,7 @@ namespace Dashboard.Vista
             if (chk2013.Checked) { dtoConsultaDinamica.Annos.Add(2013); }
             if (chk2014.Checked) { dtoConsultaDinamica.Annos.Add(2014); }
 
-
-            //string where = controlador.generarConsulta(dtoConsultaDinamica);
-            //MessageBox.Show(where);
-
             DTO dto = controlador.consultarDinamica(dtoConsultaDinamica);
-            //string msj = "";
             mapa.Overlays.Clear();
             GMarkerGoogle marker;
             GMapOverlay markerOverlay;
@@ -416,32 +411,16 @@ namespace Dashboard.Vista
                 marker = new GMarkerGoogle(new PointLatLng(obs.Latitud, obs.Longitud), GMarkerGoogleType.red);
                 markerOverlay.Markers.Add(marker);
 
-                //texto
+                //texto del marcador
                 marker.ToolTipMode = MarkerTooltipMode.Always;
                 marker.ToolTipText = string.Format("Casos: "+obs.Cantidad);
-
-
-                /*msj += obs.Provincia;
-                if(obs.Canton != null && !obs.Canton.Equals(""))
-                {
-                    msj += " " + obs.Canton;
-                }
-                if (obs.Distrito != null && !obs.Distrito.Equals(""))
-                {
-                    msj += " " + obs.Distrito;
-                }
-                msj += " " + obs.Latitud + " " + obs.Longitud + " " + obs.Cantidad + "\n";*/
 
                 mapa.Position = new PointLatLng(obs.Latitud, obs.Longitud);
 
             }
             //Agregar overlay al map
             mapa.Overlays.Add(markerOverlay);
-
-            //MessageBox.Show(msj);
-
         }
-
         
     }
 }
