@@ -78,27 +78,15 @@ namespace Dashboard.Vista
             cbxIndicador.Items.Add("Tipo de Lesion");
             cbxIndicador.Items.Add("Edad quinquenal");
 
-
-            ArrayList etiquetas = new ArrayList();
-            ArrayList valores = new ArrayList();
-
-            etiquetas.Add("Etiqueta 1");
-            etiquetas.Add("Etiqueta 2");
-            etiquetas.Add("Etiqueta 3");
-
-            valores.Add(130);
-            valores.Add(40);
-            valores.Add(150);
-
-            grafGeneral.Series[0].Points.DataBindXY(etiquetas, valores);
-
-            graf2012.Series[0].Points.DataBindXY(etiquetas, valores);
-            graf2013.Series[0].Points.DataBindXY(etiquetas, valores);
-            graf2014.Series[0].Points.DataBindXY(etiquetas, valores);
+            graf2012.Series[0].Name = "2012";
+            graf2013.Series[0].Name = "2013";
+            graf2014.Series[0].Name = "2014";
         }
 
         private void cbxIndicador_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cbxIndicadorEspecifico.Text = "";
+
             if (cbxIndicador.SelectedItem.Equals("Tipo de Afectado")){
                 cbxIndicadorEspecifico.Items.Clear();
                 cbxIndicadorEspecifico.Items.Add(""); 
@@ -129,22 +117,31 @@ namespace Dashboard.Vista
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            if(cbxIndicador.SelectedIndex == -1)
+            {
+                return;
+            }
+
             if (cbxIndicador.SelectedItem.Equals("Tipo de Afectado"))
             {
-                redirigirConsulta("Tipo de Afectado");
+                //redirigirConsulta("Tipo de Afectado");
+                procesarDatos("Tipo de Afectado");
             }
             else if (cbxIndicador.SelectedItem.Equals("Sexo"))
             {
-                redirigirConsulta("Sexo");
-                procesarGrafico("Sexo");
+                //redirigirConsulta("Sexo");
+                procesarDatos("Sexo");
+                //procesarGrafico("Sexo");
             }
             else if (cbxIndicador.SelectedItem.Equals("Tipo de Lesion"))
             {
-                redirigirConsulta("Tipo de Lesion");
+                //redirigirConsulta("Tipo de Lesion");
+                procesarDatos("Tipo de Lesion");
             }
             else if (cbxIndicador.SelectedItem.Equals("Edad quinquenal"))
             {
-                redirigirConsulta("Edad quinquenal");
+                //redirigirConsulta("Edad quinquenal");
+                procesarDatos("Edad quinquenal");
             }
             else {
                 MessageBox.Show("Seleccione un indicador plox");
@@ -168,197 +165,239 @@ namespace Dashboard.Vista
             MessageBox.Show(msj);
         }
 
-
-
-        //mas alambrado imposible c: 
-        private void procesarGrafico(string indicador)
+        private void procesarDatos(string indicador)
         {
             DTO dto = controlador.consultarIndicador(indicador);
+            Dictionary<string, int> datos;
+            string indicadorEspecifico = "";
+
+            if(cbxIndicadorEspecifico.SelectedIndex != -1)
+            {
+                indicadorEspecifico = cbxIndicadorEspecifico.SelectedItem.ToString();
+            }
+
+            Boolean isEdadQuinquenal = cbxIndicador.SelectedItem.ToString().Equals("Edad quinquenal");
+
+            datos = getDatosGenerales(dto.Resultados);
+            if (isEdadQuinquenal)
+                datos = ordenarEdadQuinquenal(datos);
+            grafGeneral.Series[0].Points.DataBindXY(datos.Keys, datos.Values);
+
+            //si no ha seleccionado un tipo específico
+            if(cbxIndicadorEspecifico.SelectedIndex == -1 || indicadorEspecifico.Equals(""))
+            {
+                
+
+                datos = getDatosAnno(dto.Resultados, 2012);
+                if (isEdadQuinquenal)
+                    datos = ordenarEdadQuinquenal(datos);
+                graf2012.Series[0].Name = "2012";
+                graf2012.Series[0].Points.DataBindXY(datos.Keys, datos.Values);
+
+
+                datos = getDatosAnno(dto.Resultados, 2013);
+                if (isEdadQuinquenal)
+                    datos = ordenarEdadQuinquenal(datos);
+                graf2013.Series[0].Name = "2013";
+                graf2013.Series[0].Points.DataBindXY(datos.Keys, datos.Values);
+
+
+                datos = getDatosAnno(dto.Resultados, 2014);
+                if (isEdadQuinquenal)
+                    datos = ordenarEdadQuinquenal(datos);
+                graf2014.Series[0].Name = "2014";
+                graf2014.Series[0].Points.DataBindXY(datos.Keys, datos.Values);
+            }
+            //si sí eligen un tipo específico
+            else
+            {
+                datos = getDatosMes(dto.Resultados, 2012, indicadorEspecifico);
+                graf2012.Series[0].Name = indicadorEspecifico;
+                graf2012.Series[0].Points.DataBindXY(datos.Keys, datos.Values);
+
+                datos = getDatosMes(dto.Resultados, 2013, indicadorEspecifico);
+                graf2013.Series[0].Name = indicadorEspecifico;
+                graf2013.Series[0].Points.DataBindXY(datos.Keys, datos.Values);
+
+                datos = getDatosMes(dto.Resultados, 2014, indicadorEspecifico);
+                graf2014.Series[0].Name = indicadorEspecifico;
+                graf2014.Series[0].Points.DataBindXY(datos.Keys, datos.Values);
+            }
+        }
+
+
+        //para el primer gráfico
+        private Dictionary<string, int> getDatosGenerales(ResultadosConsulta consulta)
+        {
+            Dictionary<string, int> datos = new Dictionary<string, int>();
             ResultadoConsultaIndicador obs;
 
-            Dictionary<string, int> hombres2012 = new Dictionary<string, int>();
-            Dictionary<int, int> mujeres2012 = new Dictionary<int, int>();
-            Dictionary<int, int> desconocido2012 = new Dictionary<int, int>();
-
-            Dictionary<int, int> hombres2013 = new Dictionary<int, int>();
-            Dictionary<int, int> mujeres2013 = new Dictionary<int, int>();
-            Dictionary<int, int> desconocido2013 = new Dictionary<int, int>();
-
-            Dictionary<int, int> hombres2014 = new Dictionary<int, int>();
-            Dictionary<int, int> mujeres2014 = new Dictionary<int, int>();
-            Dictionary<int, int> desconocido2014 = new Dictionary<int, int>();
-
-            for (Iterator iter = dto.Resultados.getIterador(); iter.hasNext();)
+            for (Iterator iter = consulta.getIterador(); iter.hasNext();)
             {
                 obs = (ResultadoConsultaIndicador)iter.next();
 
-                //Conteo de hombres por año
-                if (obs.nombre.Equals("Hombre") && obs.anno == 2012)
-                {
-                    if (hombres2012.ContainsKey(obs.mes))
-                        hombres2012[obs.mes] += obs.cantidad;
-                    else
-                        hombres2012.Add(obs.mes, obs.cantidad);
-                }//ggg
-
-                else if (obs.nombre.Equals("Hombre") && obs.anno == 2013)
-                {
-                    if (hombres2013.ContainsKey(obs.anno))
-                        hombres2013[obs.anno] += obs.cantidad;
-                    else
-                        hombres2013.Add(obs.anno, obs.cantidad);
-                }
-                else if (obs.nombre.Equals("Hombre") && obs.anno == 2014)
-                {
-                    if (hombres2014.ContainsKey(obs.anno))
-                        hombres2014[obs.anno] += obs.cantidad;
-                    else
-                        hombres2014.Add(obs.anno, obs.cantidad);
-                }
-
-                //Conteo de mujeres por año
-                else if (obs.nombre.Equals("Mujer") && obs.anno == 2012)
-                {
-                    if (mujeres2012.ContainsKey(obs.anno))
-                        mujeres2012[obs.anno] += obs.cantidad;
-                    else
-                        mujeres2012.Add(obs.anno, obs.cantidad);
-                }
-                else if (obs.nombre.Equals("Mujer") && obs.anno == 2013)
-                {
-                    if (mujeres2013.ContainsKey(obs.anno))
-                        mujeres2013[obs.anno] += obs.cantidad;
-                    else
-                        mujeres2013.Add(obs.anno, obs.cantidad);
-                }
-                else if (obs.nombre.Equals("Mujer") && obs.anno == 2014)
-                {
-                    if (mujeres2014.ContainsKey(obs.anno))
-                        mujeres2014[obs.anno] += obs.cantidad;
-                    else
-                        mujeres2014.Add(obs.anno, obs.cantidad);
-                }
-
-                //Conteo de desconocido por año
-                else if (obs.nombre.Equals("Desconocido") && obs.anno == 2012)
-                {
-                    if (desconocido2012.ContainsKey(obs.anno))
-                        desconocido2012[obs.anno] += obs.cantidad;
-                    else
-                        desconocido2012.Add(obs.anno, obs.cantidad);
-                }
-                else if (obs.nombre.Equals("Desconocido") && obs.anno == 2013)
-                {
-                    if (desconocido2013.ContainsKey(obs.anno))
-                        desconocido2013[obs.anno] += obs.cantidad;
-                    else
-                        desconocido2013.Add(obs.anno, obs.cantidad);
-                }
-                else if (obs.nombre.Equals("Desconocido") && obs.anno == 2014)
-                {
-                    if (desconocido2014.ContainsKey(obs.anno))
-                        desconocido2014[obs.anno] += obs.cantidad;
-                    else
-                        desconocido2014.Add(obs.anno, obs.cantidad);
-                }
-
+                if (datos.ContainsKey(obs.nombre))
+                    datos[obs.nombre] += obs.cantidad;
+                else
+                    datos.Add(obs.nombre, obs.cantidad);
             }
 
-            ArrayList etiquetas = new ArrayList();
-            ArrayList valores = new ArrayList();
-
-            ArrayList etiquetas2 = new ArrayList();
-            ArrayList valores2 = new ArrayList();
-
-            ArrayList etiquetas3 = new ArrayList();
-            ArrayList valores3 = new ArrayList();
-            int total2012H = 0;
-
-            for (int i = 0; i < hombres2012.Count; i++) {
-                total2012H += hombres2012.ElementAt(i).Value;
-
-                etiquetas2.Add(hombres2012.ElementAt(i).Key);
-                valores2.Add(hombres2012.ElementAt(i).Value);
-            }
-
-            etiquetas.Add("Hombres 2012");
-            etiquetas.Add("Hombres 2013");
-            etiquetas.Add("Hombres 2014");
-            etiquetas.Add("Mujeres 2012");
-            etiquetas.Add("Mujeres 2013");
-            etiquetas.Add("Mujeres 2014");
-            etiquetas.Add("Desconocido 2012");
-            etiquetas.Add("Desconocido 2013");
-            etiquetas.Add("Desconocido 2014");
-
-            valores.Add(total2012H);
-            valores.Add(hombres2013[2013]);
-            valores.Add(hombres2014[2014]);
-
-            valores.Add(mujeres2012[2012]);
-            valores.Add(mujeres2013[2013]);
-            valores.Add(mujeres2014[2014]);
-
-            valores.Add(desconocido2012[2012]);
-            valores.Add(desconocido2013[2013]);
-            valores.Add(desconocido2014[2014]);
-
-            grafGeneral.Series[0].Points.DataBindXY(etiquetas, valores);
-
-            graf2014.Series[0].Points.DataBindXY(etiquetas2, valores2);
+            return datos;
         }
 
-        //ordena el Dictionary por Keys para que se muestre bien en el gráfico
-        private SortedDictionary<int, int> ordenarDictionary(Dictionary<int, int> dict)
+        //para los otros graficos, cuando el indicador es general
+        private Dictionary<string, int> getDatosAnno(ResultadosConsulta consulta, int anno)
         {
-            var sdict = new SortedDictionary<int, int>();
-            foreach (KeyValuePair<int, int> k in dict.OrderBy(key => key.Value))
-                sdict.Add(k.Key, k.Value);
-            return sdict;
-        }
-        
-
-        
-        //intento de reducir el codigo a medio palo :v
-        /*private void procesarGrafico2(string indicador)
-        {
-            DTO dto = controlador.consultarIndicador(indicador);
+            Dictionary<string, int> datos = new Dictionary<string, int>();
             ResultadoConsultaIndicador obs;
 
-            Dictionary<int, int> dicc = new Dictionary<int, int>();
-
-            for (Iterator iter = dto.Resultados.getIterador(); iter.hasNext();)
+            for (Iterator iter = consulta.getIterador(); iter.hasNext();)
             {
                 obs = (ResultadoConsultaIndicador)iter.next();
-                int key = obs.anno; //llave año
-                    if (dicc.ContainsKey(key))
-                        dicc[obs.anno] += obs.cantidad;
+
+                if (obs.anno == anno)
+                {
+                    if (datos.ContainsKey(obs.nombre))
+                        datos[obs.nombre] += obs.cantidad;
                     else
-                        dicc.Add(obs.anno, obs.cantidad);
+                        datos.Add(obs.nombre, obs.cantidad);
+                }
             }
 
-            ArrayList etiquetas = new ArrayList();
-            ArrayList valores = new ArrayList();
+            return datos;
+        }
 
-            int total2012H = 0;
+        //para los otros gráficos, cuando el indicador es específico
+        private Dictionary<string, int> getDatosMes(ResultadosConsulta consulta, int anno, string indEspecifico)
+        {
+            Dictionary<string, int> datos = new Dictionary<string, int>();
+            ResultadoConsultaIndicador obs;
 
-            for (int i = 0; i < dicc.Count; i++)
+            for (Iterator iter = consulta.getIterador(); iter.hasNext();)
             {
-                total2012H += hombres2012.ElementAt(i).Value;
+                obs = (ResultadoConsultaIndicador)iter.next();
 
-                etiquetas2.Add(hombres2012.ElementAt(i).Key);
-                valores2.Add(hombres2012.ElementAt(i).Value);
+                if (obs.anno == anno && obs.nombre.Equals(indEspecifico))
+                {
+                    if (datos.ContainsKey(obs.mes))
+                        datos[obs.mes] += obs.cantidad;
+                    else
+                        datos.Add(obs.mes, obs.cantidad);
+                }
             }
-            for (int i = 0; i < mujeres2012.Count; i++)
+
+            return ordenarPorMes(datos);
+        }
+
+        //Ordena los meses, por orden de mes xD
+        private Dictionary<string, int> ordenarPorMes(Dictionary<string, int> meses)
+        {
+            Dictionary<string, int> datos = new Dictionary<string, int>();
+
+            for(int i=0; i<12; i++)
             {
-                total2012M += mujeres2012.ElementAt(i).Value;
-
-                etiquetas3.Add(mujeres2012.ElementAt(i).Key);
-                valores3.Add(mujeres2012.ElementAt(i).Value);
+                foreach(KeyValuePair<string, int> nodo in meses)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            if (nodo.Key.Equals("Enero"))
+                                datos.Add(nodo.Key, nodo.Value);
+                            break;
+                        case 1:
+                            if (nodo.Key.Equals("Febrero"))
+                                datos.Add(nodo.Key, nodo.Value);
+                            break;
+                        case 2:
+                            if (nodo.Key.Equals("Marzo"))
+                                datos.Add(nodo.Key, nodo.Value);
+                            break;
+                        case 3:
+                            if (nodo.Key.Equals("Abril"))
+                                datos.Add(nodo.Key, nodo.Value);
+                            break;
+                        case 4:
+                            if (nodo.Key.Equals("Mayo"))
+                                datos.Add(nodo.Key, nodo.Value);
+                            break;
+                        case 5:
+                            if (nodo.Key.Equals("Junio"))
+                                datos.Add(nodo.Key, nodo.Value);
+                            break;
+                        case 6:
+                            if (nodo.Key.Equals("Julio"))
+                                datos.Add(nodo.Key, nodo.Value);
+                            break;
+                        case 7:
+                            if (nodo.Key.Equals("Agosto"))
+                                datos.Add(nodo.Key, nodo.Value);
+                            break;
+                        case 8:
+                            if (nodo.Key.Equals("Setiembre"))
+                                datos.Add(nodo.Key, nodo.Value);
+                            break;
+                        case 9:
+                            if (nodo.Key.Equals("Octubre"))
+                                datos.Add(nodo.Key, nodo.Value);
+                            break;
+                        case 10:
+                            if (nodo.Key.Equals("Noviembre"))
+                                datos.Add(nodo.Key, nodo.Value);
+                            break;
+                        case 11:
+                            if (nodo.Key.Equals("Diciembre"))
+                                datos.Add(nodo.Key, nodo.Value);
+                            break;
+                    }
+                }
             }
 
-            grafGeneral.Series[0].Points.DataBindXY(etiquetas, valores);
-        }*/
+            return datos;
+        }
+
+        //Ordena las edades quinquenales por rango de edad
+        private Dictionary<string, int> ordenarEdadQuinquenal(Dictionary<string, int> edades)
+        {
+            Dictionary<string, int> datos = new Dictionary<string, int>();
+            string[] campos;
+            
+            //se va avanzando por quiquena
+            for(int i=0; i<=75; i += 5)
+            {
+                foreach (KeyValuePair<string, int> edad in edades)
+                {
+                    if (!edad.Key.Equals("Desconocida"))
+                    {
+                        campos = edad.Key.Split(' ');
+                        int menor;
+
+                        try //intenta sacar las edades normales
+                        {
+                            menor = Int32.Parse(campos[1]);
+                        }
+                        catch (FormatException e) //si falla es porque encontró la de 75 (tiene formato distinto)
+                        {
+                            menor = Int32.Parse(campos[2]);
+                        }
+
+                        if (menor == i)
+                        {
+                            datos.Add(edad.Key, edad.Value);
+                            break;
+                        }
+                    }
+                }
+            }
+            //Las desconocidas se agregan al final
+            foreach (KeyValuePair<string, int> edad in edades)
+            {
+                if (edad.Key.Equals("Desconocida"))
+                {
+                    datos.Add(edad.Key, edad.Value);
+                }
+            }
+            return datos;
+        }
 
     }
 }
