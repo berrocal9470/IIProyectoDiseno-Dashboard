@@ -24,8 +24,6 @@ namespace Dashboard.Negocio
 
         public ResultadosConsulta Resultados { get; set; }
 
-        public EnumTipoConsulta.TipoConsulta tipoConsulta { get; set; }
-
         public DTO() { }
 
         //genera una copia del actual estado del DTO
