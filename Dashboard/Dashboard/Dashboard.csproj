@@ -63,7 +63,6 @@
     <Compile Include="Negocio\Controlador.cs" />
     <Compile Include="Negocio\DAOBD.cs" />
     <Compile Include="Negocio\DTO.cs" />
-    <Compile Include="Negocio\EnumTipoConsulta.cs" />
     <Compile Include="Negocio\GraficoObserver.cs" />
     <Compile Include="Negocio\IConsultable.cs" />
     <Compile Include="Negocio\IContainer.cs" />

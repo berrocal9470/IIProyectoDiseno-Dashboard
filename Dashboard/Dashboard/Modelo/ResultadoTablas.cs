@@ -26,9 +26,10 @@ namespace Dashboard.Modelo
             Nombre = nombre;
         }
 
-        public void getResultado()
+        public string GetToString()
         {
-            throw new NotImplementedException();
+            string msj = Codigo + ", " + Nombre + ".";
+            return msj;
         }
     }
 }

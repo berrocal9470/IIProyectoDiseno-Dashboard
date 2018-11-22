@@ -31,9 +31,10 @@ namespace Dashboard.Modelo
             anno = pAnno;
         }
 
-        public void getResultado()
+        public string GetToString()
         {
-            throw new NotImplementedException();
+            string msj = nombre + ", " + cantidad + ", " + mes + ", " + anno + ".";
+            return msj;
         }
     }
 }

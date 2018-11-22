@@ -8,6 +8,6 @@ namespace Dashboard.Modelo
 {
     interface IResultado
     {
-        void getResultado();
+        string GetToString();
     }
 }

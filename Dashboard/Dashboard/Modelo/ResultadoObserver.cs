@@ -25,9 +25,10 @@ namespace Dashboard.Modelo
             Edad = edad;
         }
 
-        public void getResultado()
+        public string GetToString()
         {
-            throw new NotImplementedException();
+            string msj = Sexo + ", " + Edad + ".";
+            return msj;
         }
     }
 }

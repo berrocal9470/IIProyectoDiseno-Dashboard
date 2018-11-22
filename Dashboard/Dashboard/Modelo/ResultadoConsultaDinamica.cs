@@ -38,9 +38,11 @@ namespace Dashboard.Modelo
             Cantidad = cantidad;
         }
 
-        public void getResultado()
+        public string GetToString()
         {
-            throw new NotImplementedException();
+            string msj = Provincia + ", " + Canton + ", " + Distrito + ", " +
+                Latitud + ", " + Longitud + ".";
+            return msj;
         }
     }
 }
