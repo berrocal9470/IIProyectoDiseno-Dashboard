@@ -144,7 +144,7 @@ namespace Dashboard.Vista
                 procesarDatos("Edad quinquenal");
             }
             else {
-                MessageBox.Show("Seleccione un indicador plox");
+                MessageBox.Show("Seleccione un indicador");
             }
         }
 
